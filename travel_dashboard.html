@@ -1635,6 +1635,23 @@ function renderPgn(id,total,pgSz,cur,cb) {
 
 // Extra helper for liters display
 function fd_(n,d=1){return n==null?'—':Number(n).toFixed(d);}
+loadData();
+const API_URL =
+'https://script.google.com/macros/s/AKfycbzI3ZCysw2cKvPsA1zxvTLw6llw7qAGF9QCmbEnG_I1VL1f8dgfX4z7y_RYKjL-9p4L/exec';
+
+async function loadData() {
+
+  const response = await fetch(
+    API_URL + '?t=' + new Date().getTime()
+  );
+
+  const data = await response.json();
+
+  console.log(data);
+
+}
+
+window.onload = loadData;
 </script>
 </body>
 </html>
