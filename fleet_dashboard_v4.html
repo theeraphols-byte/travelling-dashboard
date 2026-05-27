@@ -1381,18 +1381,28 @@ function pct(cur,prev){if(!prev)return'';const p=(cur-prev)/prev*100;return`<spa
 // ═══════════════════════════════════════════════
 //  BOOT
 // ═══════════════════════════════════════════════
-window.onload = async function () {
+
+loadBuiltIn();
+  
+</script>
+  
+const API_URL =
+'https://script.google.com/macros/s/AKfycbzP__u5FNst355DXTUN5_w-U2HU4IkQBD9bX6mt_Yjdtq4WjaVRChcCqY3EHI0rmjV5/exec';
+
+async function testAPI() {
 
   const response = await fetch(
-    'https://script.google.com/macros/s/AKfycbzP__u5FNst355DXTUN5_w-U2HU4IkQBD9bX6mt_Yjdtq4WjaVRChcCqY3EHI0rmjV5/exec' + new Date().getTime()
+    API_URL + '?t=' + new Date().getTime()
   );
 
   const data = await response.json();
+
+  console.log(data);
 
   alert(JSON.stringify(data.fleet_card[0]));
 
 }
 
-</script>
+setTimeout(testAPI, 2000);
 </body>
 </html>
